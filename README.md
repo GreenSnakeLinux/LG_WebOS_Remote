@@ -7,9 +7,9 @@ Inspired from the LG SDK project :
 https://github.com/ConnectSDK/Connect-SDK-Android-Core/tree/master/src/com/connectsdk/service/webos
 
 On the TV an option is mandatory to set ON:<br>
-Settings > General > Mobile TV
-For recent Smart TV you need also to set :
-Network settings > LG Connect Apps
+Settings > General > Mobile TV<br>
+For recent Smart TV you need also to set :<br>
+Network settings > LG Connect Apps<br>
 
 NOT YET TESTED
 
