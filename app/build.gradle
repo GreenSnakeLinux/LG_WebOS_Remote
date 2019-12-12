@@ -1,0 +1,59 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 29
+    defaultConfig {
+        applicationId "com.tv.lg_webos"
+        minSdkVersion 17
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            debuggable true
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt')
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.preference:preference:1.1.0'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta3'
+
+    implementation 'androidx.legacy:legacy-support-v13:1.0.0'
+    implementation 'com.google.android.material:material:1.2.0-alpha02'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta3'
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    // To avoid:
+    //SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+    //SLF4J: Defaulting to no-operation (NOP) logger implementation
+    //SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+    implementation 'org.slf4j:slf4j-nop:1.7.29'
+
+    // WebSocket API
+    // Doc: https://github.com/TooTallNate/Java-WebSocket)
+    implementation "org.java-websocket:Java-WebSocket:1.4.0"
+
+    // Wake On Lan API
+    // Doc: https://github.com/stealthcopter/AndroidNetworkTools
+    implementation 'com.github.stealthcopter:AndroidNetworkTools:0.4.5.2'
+}

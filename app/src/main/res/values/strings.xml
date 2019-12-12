@@ -1,0 +1,66 @@
+<resources>
+    <string name="app_name">LG Remote</string>
+
+    <string name="wifi_not_connected">WIFI not connected</string>
+    <string name="detect_tv_first">Please, detect TV first</string>
+    <string name="select_action_first">Please, select an action first</string>
+    <string name="send_button">Send</string>
+    <string name="detect_button">Detect</string>
+    <string name="ip_text" translatable="false">IP: </string>
+    <string name="key_text">Key: </string>
+
+    <string-array name="action_array">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>TV</item>
+        <item>Youtube</item>
+        <item>Netflix</item>
+        <item>Amazon</item>
+        <item>HDMI1</item>
+        <item>HDMI2</item>
+        <item>HDMI3</item>
+        <item>COMPONENT</item>
+        <item>AV1</item>
+        <item>Guide</item>
+        <item>Smart Share</item>
+        <item>On</item>
+        <item>Off</item>
+        <item>Mute</item>
+        <item>Volume +</item>
+        <item>Volume -</item>
+        <item>Chaîne +</item>
+        <item>Chaîne -</item>
+        <item>Lecture</item>
+        <item>Pause</item>
+        <item>Stop</item>
+        <item>Arrière</item>
+        <item>Avancer</item>
+        <item>Suivant</item>
+        <item>Précédent</item>
+        <item>Programme</item>
+        <item>Source</item>
+        <item>Internet</item>
+        <item>Retour</item>
+        <item>Haut</item>
+        <item>Bas</item>
+        <item>Gauche</item>
+        <item>Droite</item>
+        <item>Entrée</item>
+        <item>Exit</item>
+        <item>Tiret</item>
+        <item>Home</item>
+        <item>Rouge</item>
+        <item>Vert</item>
+        <item>Jaune</item>
+        <item>Bleu</item>
+        <item>3D</item>
+    </string-array>
+</resources>

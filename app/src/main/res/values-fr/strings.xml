@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LG télécommande</string>
+	
+	<string name="wifi_not_connected">WIFI non connecté</string>
+    <string name="detect_tv_first">"Merci de détecter la TV en premier"</string>
+    <string name="select_action_first">Merci de sélectionner une action en premier</string>
+    <string name="send_button">Envoyer</string>
+    <string name="detect_button">Détecter</string>
+    <string name="key_text">Touche: </string>
+
+</resources>
