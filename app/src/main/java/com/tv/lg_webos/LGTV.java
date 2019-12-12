@@ -80,10 +80,10 @@ public class LGTV extends ContextWrapper {
     private final static String PAIRING =                "pairing";
     private final static String PAIRING_FILE =           "pairing.json";
     private final static String SSAP_ON =                "ssap://system/turnOn";
-    private final static String SSAP_OFF =               "ssap://system/turnOff";           // OK
-    private final static String SSAP_MUTE =              "ssap://audio/setMute";            // OK
-    private final static String SSAP_VOLUME_UP =         "ssap://audio/volumeUp";           // OK
-    private final static String SSAP_VOLUME_DOWN =       "ssap://audio/volumeDown";         // OK
+    private final static String SSAP_OFF =               "ssap://system/turnOff";
+    private final static String SSAP_MUTE =              "ssap://audio/setMute";
+    private final static String SSAP_VOLUME_UP =         "ssap://audio/volumeUp";
+    private final static String SSAP_VOLUME_DOWN =       "ssap://audio/volumeDown";
     private final static String SSAP_CHANNEL_UP =        "ssap://tv/channelUp";
     private final static String SSAP_CHANNEL_DOWN =      "ssap://tv/channelDown";
     private final static String SSAP_PLAY =              "ssap://media.controls/play";
@@ -95,6 +95,8 @@ public class LGTV extends ContextWrapper {
     private final static String SSAP_UPDATE_INPUT =      "ssap://tv/switchInput";
     private final static String SSAP_APP_LAUNCH =        "ssap://system.launcher/launch";
     private final static String SSAP_APP_BROWSER =       "ssap://system.launcher/open";
+    private final static String SSAP_3D_ON =             "ssap://com.webos.service.tv.display/set3DOn";
+    private final static String SSAP_3D_OFF =            "ssap://com.webos.service.tv.display/set3DOff";
     private final static String SSAP_MOUSE_SOCKET =      "ssap://com.webos.service.networkinput/getPointerInputSocket";
     private final static String WS_REQUEST =             "request";
     private final static String WS_REGISTER =            "register";
@@ -116,7 +118,6 @@ public class LGTV extends ContextWrapper {
     private final static String BTN_DASH =               "DASH";
     private final static String BTN_ENTER =              "ENTER";
     private final static String BTN_EXIT =               "EXIT";
-    private final static String BTN_3D_MODE =            "3D_MODE";         // Not working
     private final static String BTN_RED =                "RED";
     private final static String BTN_GREEN =              "GREEN";
     private final static String BTN_YELLOW =             "YELLOW";
@@ -129,17 +130,20 @@ public class LGTV extends ContextWrapper {
     private static WebSocketClient mInputSocket;
 
     // To save if we have to mute or unmute the TV sound
-    private static boolean m_isMute=false;
+    private static boolean m_isMute = false;
+
+    // To save if we have to put 3D on or off
+    private static boolean m_3d_on = false;
 
     // RFU
     private static boolean mConnected;
 
     // Global int incremented on each TV request (optional can be set to 0)
-    private static int nextRequestId=1;
+    private static int nextRequestId = 1;
 
     // Global to save current BTN_ hit
     // Not very clean I know
-    private static String m_keyName=null;
+    private static String m_keyName = null;
 
     // Globals variables to save IP and Port of the Smart TV
     private String myIP, myPort;
@@ -602,7 +606,11 @@ public class LGTV extends ContextWrapper {
                 ExecuteURL(getButtonURL(BTN_BLUE), key);
                 break;
             case THREE_D:
-                ExecuteURL(getButtonURL(BTN_3D_MODE), key);
+                if(m_3d_on)
+                    ExecuteURL(getSimpleURL(SSAP_3D_OFF), key + " off");
+                else
+                    ExecuteURL(getSimpleURL(SSAP_3D_ON), key + " on");
+                m_3d_on=!m_3d_on;
                 break;
             default:
                 break;
