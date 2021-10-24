@@ -846,7 +846,7 @@ public class LGTV extends ContextWrapper {
             // Call once for all todo: maybe move this else where
             trustEveryone();
 
-            mInputSocket = new WebSocketClient(uri, new Draft_6455(), null, 2000) {
+            mInputSocket = new WebSocketClient(uri) {
                 @Override
                 public void onOpen(ServerHandshake arg0) {
                     Log.d("PtrAndKeyboardFragment", "connected to " + uri.toString());
@@ -889,8 +889,8 @@ public class LGTV extends ContextWrapper {
             WebOSTVTrustManager customTrustManager = new WebOSTVTrustManager();
             sslContext.init(null, new WebOSTVTrustManager[] {customTrustManager}, null);
             //Web-Socket 1.3.7 patch
-            //mInputSocket.setSocket(sslContext.getSocketFactory().createSocket());
-            mInputSocket.setSocketFactory(sslContext.getSocketFactory());
+            mInputSocket.setSocket(sslContext.getSocketFactory().createSocket());
+            //mInputSocket.setSocketFactory(sslContext.getSocketFactory());
             mInputSocket.setConnectionLostTimeout(0);
         } catch (Exception e) {
             Log.e("SSLContext", "Exception: " + e.getMessage());
