@@ -844,7 +844,7 @@ public class LGTV extends ContextWrapper {
             }
 
             // Call once for all todo: maybe move this else where
-            trustEveryone();
+            //trustEveryone();
 
             mInputSocket = new WebSocketClient(uri) {
                 @Override
@@ -880,16 +880,16 @@ public class LGTV extends ContextWrapper {
 
         try {
             //ProviderInstaller.installIfNeeded(getApplicationContext());
-            SSLContext sslContext = SSLContext.getInstance("TLS");
+            //SSLContext sslContext = SSLContext.getInstance("TLS");
 
             // todo : Test if TLS v1.1 or v1.2 is working better or not
             //SSLContext sslContext = SSLContext.getInstance("TLSv1.1");
             //SSLContext sslContext = SSLContext.getInstance("TLSv1.2");
 
-            WebOSTVTrustManager customTrustManager = new WebOSTVTrustManager();
-            sslContext.init(null, new WebOSTVTrustManager[] {customTrustManager}, null);
+            //WebOSTVTrustManager customTrustManager = new WebOSTVTrustManager();
+            //sslContext.init(null, new WebOSTVTrustManager[] {customTrustManager}, null);
             //Web-Socket 1.3.7 patch
-            mInputSocket.setSocket(sslContext.getSocketFactory().createSocket());
+            //mInputSocket.setSocket(sslContext.getSocketFactory().createSocket());
             //mInputSocket.setSocketFactory(sslContext.getSocketFactory());
             mInputSocket.setConnectionLostTimeout(0);
         } catch (Exception e) {
